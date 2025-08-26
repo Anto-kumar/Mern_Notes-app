@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+body {
+  background-color: #fdfeff;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 bg-blue-500 text-white rounded;
+  }
+    .btn:hover {
+        @apply bg-blue-600;
+    }
+
+    .input-box {
+      @apply w-full text-sm bg-transparent border-[1.5px] border-blue-500 rounded px-2 py-1;
+    }
+}

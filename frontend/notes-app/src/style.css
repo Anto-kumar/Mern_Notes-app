@@ -7,13 +7,37 @@ body {
 
 @layer components {
   .btn {
-    @apply px-4 py-2 bg-blue-500 text-white rounded;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #3b82f6;
+    color: #fff;
+    border-radius: 0.25rem;
   }
-    .btn:hover {
-        @apply bg-blue-600;
-    }
+  .btn:hover {
+    background-color: #2563eb;
+  }
 
-    .input-box {
-      @apply w-full text-sm bg-transparent border-[1.5px] border-blue-500 rounded px-2 py-1;
-    }
+  .input-box {
+    width: 100%;
+    font-size: 0.875rem;
+    background-color: transparent;
+    border-width: 1.5px;
+    border-color: #3b82f6;
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .icon-btn {
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+
+  .input-label {
+    font-size: 0.75rem; /* text-xs */
+    color: #94a3b8;     /* text-slate-400 */
+  }
 }

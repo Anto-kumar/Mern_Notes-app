@@ -1,13 +1,42 @@
 import React,{useState} from "react";
 import TagInput from "../../components/Input/TagInput";
+import { MdClose } from "react-icons/md";
 
-const AddEditNotes = () => {
+const AddEditNotes = ({noteData, type, onClose}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tags, setTags] = useState([]);
+  const [error, setError] = useState(null);
+
+  const addNote =  async() => {}
+
+  const editNote = async() => {}
+
+  const handleAddNote = () =>
+  {
+    if(!title.trim() || !content.trim())
+    {
+      setError("Title and content are required.");
+      return;
+    }
+
+    if(type=="edit")
+    {
+      editNote();
+    }
+    if(type=="add") {
+      addNote();
+    }
+
+    // Handle adding the note
+    setError(null);
+  }
 
   return (
-    <div>
+    <div className="relative">
+      <button className="w-10 h-10 rounded-full flex items-center justify-center absolute -top-3 -right-3 hover:bg-slate-50" onClick={onClose}>
+        <MdClose className="text-slate-500 hover:text-slate-700"/> 
+      </button>
       <div className="flex flex-col gap-2">
         <label className="input-label">Title</label>
         <input
@@ -32,7 +61,8 @@ const AddEditNotes = () => {
         <label className="input-label">TAGS</label>
         <TagInput tags={tags} setTags={setTags} />
       </div>
-      <button className="btn mt-5 font-medium p-3">ADD NOTE</button>
+      {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
+      <button className="btn mt-5 font-medium p-3" onClick={handleAddNote}>ADD NOTE</button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PasswordInput from "../../components/Input/PasswordInput";
 import { validEmail } from "../../utils/helper";
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -65,6 +66,7 @@ const SignUp = () => {
               <PasswordInput
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder={"Enter your password"}
               />
             </div>
             <div className="mb-2">
@@ -74,10 +76,12 @@ const SignUp = () => {
               <PasswordInput
                 value={confirmPassword}
                 onChange={(e) => setconfirmPassword(e.target.value)}
+                placeholder={"Confirm your password"}
               />
             </div>
             {error && <p className="text-red-500 text-sm">{error}</p>}
             <button type="submit" className="btn btn:hover">SignUp</button>
+            <p className="mt-2 text-sm">Already have an account? <Link to="/login" className="text-blue-500"><span className="font-bold underline">Login</span></Link></p>
           </form>
         </div>
       </div>
